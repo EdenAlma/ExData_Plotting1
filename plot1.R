@@ -18,7 +18,11 @@ par(cex = 0.75)
 inputData <- filter(inputData, (as.Date(inputData$Date, "%d/%m/%Y") >= start
                                 & as.Date(inputData$Date, "%d/%m/%Y") <= end))
 
+png(filename = "plot1.png", width = 480, height = 480)
+
 
 #plot histogram
 hist(as.numeric(inputData$Global_active_power), main = "Global Active Power",
     xlab = "Global Active Power (kilowatts)", col = "red")
+
+dev.off()

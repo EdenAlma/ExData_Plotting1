@@ -19,6 +19,8 @@ inputData <- transform(inputData, dateTime = as.POSIXct(paste0(Date," ",Time ),
 par(pty = "s")
 par(cex = 0.75)
 
+png(filename = "plot3.png", width = 480, height = 480)
+
 plot(inputData$dateTime,inputData$Sub_metering_1,type = "l", xlab = "",
       ylab = "Energy sub metering (kilowatts)")
 lines(inputData$dateTime,inputData$Sub_metering_2, col = "red")  #add other lines
@@ -30,3 +32,5 @@ lineColors <- c("red","blue","black") #variables for lengend
 #add legend
 legend(x = "topright",legend = lineNames,
        col = lineColors, lty = c(1,1,1), cex = 0.75)
+
+dev.off()

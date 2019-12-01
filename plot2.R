@@ -21,6 +21,10 @@ inputData <- transform(inputData, dateTime = as.POSIXct(paste0(Date," ",Time ),
                                                format = "%d/%m/%Y %H:%M:%OS"))
 
 
+png(filename = "plot2.png", width = 480, height = 480)
+
 #plot the graph
 plot(inputData$dateTime,inputData$Global_active_power,type = "l", xlab = "",
       ylab = "Global Active Power (kilowatts)")
+
+dev.off()

@@ -17,6 +17,8 @@ inputData <- filter(inputData, (as.Date(inputData$Date, "%d/%m/%Y") >= start
 inputData <- transform(inputData, dateTime = as.POSIXct(paste0(Date," ",Time ),
               format = "%d/%m/%Y %H:%M:%OS"))
 
+png(filename = "plot4.png", width = 480, height = 480)
+
 par(mfrow = c(2,2)) #set parameter to plot multiple graphs
 par(pty = "s")
 par(cex = 0.5)
@@ -40,3 +42,5 @@ legend(x = "topright", legend = lineNames, col = lineColors, lty = c(1,1,1),
 
 plot(inputData$dateTime,inputData$Global_reactive_power,type = "l", 
       xlab = "datetime", ylab = "Global_reactive_power")
+
+dev.off()
